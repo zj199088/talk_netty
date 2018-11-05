@@ -33,6 +33,6 @@ public class WSServiceInitializer extends ChannelInitializer<SocketChannel> {
         //对webSocket来说，都是以frames进行传输的，不同的数据类型对于frames也是不同的
         channelPipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
         //自定义Handler
-        channelPipeline.addLast(null);
+        channelPipeline.addLast(new ChatHandler());
     }
 }
