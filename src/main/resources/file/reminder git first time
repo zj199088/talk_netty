@@ -1,0 +1,8 @@
+##一、本地项目上传到git
+1.git init
+2.git add .
+3.git commit -m "first commit"
+4.git remote add origin "Url"
+5.git push -u origin master
+##二、删除git仓库
+1.git网站“Setting”
