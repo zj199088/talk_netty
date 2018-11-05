@@ -24,7 +24,7 @@ public class WSService  {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new WSServiceInitializer());
             //设置同步服务的端口
-            ChannelFuture future = serverBootstrap.bind(8089).sync();
+            ChannelFuture future = serverBootstrap.bind(1088).sync();
             //客户端对应的管道,监听关闭的chanel,设置位同步方式
             future.channel().closeFuture().sync();
         }finally {

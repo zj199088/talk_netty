@@ -7,6 +7,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.stream.ChunkedWriteHandler;
 
 
 /**
@@ -23,7 +24,7 @@ public class WSServiceInitializer extends ChannelInitializer<SocketChannel> {
         //webSocket基于http协议，所以要有http解码器
         channelPipeline.addLast(new HttpServerCodec());
         //写大数据流的支持
-        channelPipeline.addLast(new CustomHandler());
+        channelPipeline.addLast(new ChunkedWriteHandler());
         //httpMessage的聚合器
         channelPipeline.addLast(new HttpObjectAggregator(1024*64));
         //====================以上是对Http支持===================

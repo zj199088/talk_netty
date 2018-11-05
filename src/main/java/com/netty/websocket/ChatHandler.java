@@ -34,10 +34,16 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         clients.add(ctx.channel());
+        System.out.println("客户端连接："+ ctx.channel().id().asLongText());
+
     }
     //既可以使用super,也可以使用clients.remove(ctx.channel());
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-        super.handlerRemoved(ctx);
+        //super.handlerRemoved(ctx);
+        System.out.println("客户端断开，channle对应的长id为："
+                + ctx.channel().id().asLongText());
+        System.out.println("客户端断开，channle对应的短id为："
+                + ctx.channel().id().asShortText());
     }
 }
